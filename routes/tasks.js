@@ -18,4 +18,24 @@ router.get('/tasks',(req,res,next)=>{
 
 });
 
+// Get Single Task
+router.get('/tasks/:id',(req,res,next)=>{
+    
+    // res.send('tasks file');
+     db.tasks.findOne({_id:mongojs.ObjectId(req.params.id)},(err,tasks)=>{
+         if(err){
+             res.send(err);
+         }
+          res.json(tasks);
+   
+       });
+ 
+ 
+ });
+ 
+
+
+
+
+
 module.exports = router;
