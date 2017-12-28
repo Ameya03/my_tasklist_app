@@ -1,12 +1,11 @@
 var express = require ('express');
 var router = express.Router();
-//var index = 
-
+var index ="../views/index.html";
 
 router.get('/',(req,res,next)=>{
     
-    res.render('index.html');
-
+    res.render(index);
+   
 
 });
 
