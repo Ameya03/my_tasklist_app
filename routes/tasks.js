@@ -29,12 +29,59 @@ router.get('/tasks/:id',(req,res,next)=>{
           res.json(tasks);
    
        });
- 
- 
  });
  
 
 
+//Save Task
+router.post('/task', (req, res, next)=>{
+    var task = req.body;
+    if(!task.title || !(task.isDone + '')){
+        res.status(400);
+        res.json({
+            "error": "Bad Data"
+        });
+    } else {
+        db.tasks.save(task, function(err, task){
+            if(err){
+                res.send(err);
+            }
+            res.json(task);
+        });
+    }
+});
+
+//Upate task
+router.put('/task/:id', (req, res, next)=>{
+var task = req.body;
+var updTask = {};
+
+if(task.isDone){
+updTask.isDone = task.isDone;
+}
+
+if(task.title){
+updTask=task.title;
+}
+
+if(!updTask){
+
+    res.status(400);
+    res.json({
+   "error":"Bad Data"
+})
+}else{
+db.tasks.update({_id:mongojs:ObjectId(req.params.id)},updTask, {},(err,task)=>{
+
+if(err){
+res.send(err);
+
+}
+res.json(task);
+});
+}
+});
+module.exports = router;
 
 
 
