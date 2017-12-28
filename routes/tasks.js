@@ -71,7 +71,7 @@ if(!updTask){
    "error":"Bad Data"
 })
 }else{
-db.tasks.update({_id:mongojs:ObjectId(req.params.id)},updTask, {},(err,task)=>{
+db.tasks.update({_id:mongojs.ObjectId(req.params.id)},updTask, {},(err,task)=>{
 
 if(err){
 res.send(err);
