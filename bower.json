@@ -1,0 +1,17 @@
+{
+  "name": "my_tasklist_app",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Ameya Deshmukh <ameya03deshmukh@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Ameya03/my_tasklist_app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
